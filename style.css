@@ -1,0 +1,560 @@
+/* ------------------ IMPORTACIÓN DE FUENTE CONSISTENTE ------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* ------------------ RESET Y BASE ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Aplicamos la fuente Poppins a todo el sitio */
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ------------------ HEADER ------------------ */
+header {
+    width: 100%;
+    background-color: #a2006c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 55px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.logo h2 {
+    color: white;
+    font-size: 1.6em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* NAV - Estilo unificado de Index.html */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Efecto de línea inferior animada para la navegación (más moderno y consistente) */
+nav a::after {
+    content: "";
+    width: 0%;
+    height: 3px;
+    background: #5dc1b9;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ------------------ ESTILOS REUTILIZABLES ------------------ */
+h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    color: #a2006c;
+    font-weight: 600;
+}
+
+/* ------------------ BANNER (Index.html) ------------------ */
+.banner-index {
+    height: 450px;
+    width: 100%;
+    background-image: url('https://www.gaceta.unam.mx/wp-content/uploads/2021/12/211209-aca7-des-f1-mujeres-lideres.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner-index::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(165, 0, 124, 0.25);
+    backdrop-filter: blur(2px);
+}
+
+.banner-text {
+    position: relative;
+    color: white;
+    animation: fadeUp 1.8s ease-out;
+    max-width: 650px;
+    padding: 20px;
+}
+
+.banner-text h1 {
+    /* Mantener el glow para el Index */
+    animation: glow 3s infinite alternate ease-in-out;
+}
+
+/* BANNER (Quienes Somos, Programas, Contacto, Cuestionario) */
+.banner-other {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.banner-other h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* ANIMACIONES DEL BANNER */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #fff;
+    }
+    100% {
+        text-shadow: 0 0 25px #ff9fde;
+    }
+}
+
+/* ------------------ SEPARADOR DECORATIVO ------------------ */
+.separator {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to bottom, #ffffff 0%, #ffe1f3 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+}
+
+/* ------------------ SECCIONES: TARJETAS (Index) ------------------ */
+.sections {
+    padding: 60px 10%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.section-card {
+    width: 380px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    transition: 0.4s;
+    position: relative;
+    text-align: center;
+}
+
+.section-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.section-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.section-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.85);
+}
+
+.section-card h3 {
+    color: #a2006c;
+    font-size: 1.6em;
+    margin: 20px 0 10px;
+}
+
+.section-card p {
+    padding: 0 20px 20px;
+    color: #555;
+    font-size: 1em;
+}
+
+.section-card a {
+    display: inline-block;
+    margin-bottom: 25px;
+    text-decoration: none;
+    background: linear-gradient(90deg, #be5dc1, #ff7cd4);
+    padding: 10px 25px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.section-card a:hover {
+    box-shadow: 0 0 15px #ff9fe7;
+    transform: scale(1.07);
+}
+
+/* ------------------ SECCIONES: QUIÉNES SOMOS ------------------ */
+.section-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 10%;
+    gap: 50px;
+}
+
+.text-content {
+    flex: 1.2;
+    min-width: 320px;
+}
+
+.text-content h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.text-content h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: #5dc1b9;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    border-radius: 2px;
+}
+
+.text-content p {
+    margin-bottom: 18px;
+    text-align: justify;
+    font-weight: 300;
+}
+
+.text-content strong {
+    color: #a2006c;
+    font-weight: 600;
+}
+
+.image-content {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.image-content img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.image-content img:hover {
+    transform: scale(1.03);
+}
+
+/* ------------------ SECCIONES: PROGRAMAS ------------------ */
+.container {
+    padding: 60px 10%;
+}
+
+.programa {
+    background-color: #fff;
+    border-left: 6px solid #a2006c;
+    padding: 25px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.programa:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.programa h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.programa p {
+    margin-bottom: 10px;
+}
+
+.programa ul {
+    margin-left: 25px;
+    list-style-type: '💜 ';
+}
+
+/* ------------------ SECCIONES: FORMULARIOS Y CONTACTO ------------------ */
+main {
+    margin-top: 120px;
+    padding: 40px 10%;
+    background-color: #f4f4f9;
+    min-height: 70vh;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pregunta {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+    color: #333;
+    font-weight: 400;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-family: inherit;
+}
+
+button[type="submit"] {
+    background-color: #a2006c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto 0;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+button[type="submit"]:hover {
+    background-color: #5dc1b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------ FOOTER UNIFICADO ------------------ */
+footer {
+    background-color: #f8f8f8;
+    color: #555;
+    padding: 40px 10%;
+    margin-top: 60px;
+    border-top: 3px solid #ffd2ef;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+footer h3 {
+    color: #a2006c;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+footer .legal {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    color: #777;
+    font-size: 0.9em;
+}
+
+footer .legal a {
+    color: #a2006c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer .legal a:hover {
+    text-decoration: underline;
+}
+
+/* Tabla de contacto (unificada) */
+.contact-table {
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.contact-table th,
+.contact-table td {
+    border: 1px solid #e0e0e0;
+    padding: 14px;
+    text-align: left;
+    font-size: 0.95em;
+}
+
+.contact-table th {
+    background-color: #a2006c;
+    color: white;
+    font-weight: 600;
+}
+
+.contact-table td {
+    background-color: #fff;
+}
+
+.contact-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+/* Redes Sociales */
+.social-links {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.social-links a {
+    color: #5dc1b9;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #a2006c;
+}
+
+/* ------------------ RESPONSIVO ------------------ */
+@media (max-width: 900px) { 
+    header {
+        padding: 10px 20px;
+    }
+    
+    .logo h2 {
+        font-size: 1.4em;
+    }
+
+    nav {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .banner-index, .banner-other {
+        margin-top: 100px;
+        height: 350px;
+    }
+
+    .sections, .section-info, .container, main {
+        padding: 40px 5%;
+    }
+
+    .section-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .contact-table {
+        font-size: 0.85em;
+    }
+
+    .contact-table th, .contact-table td {
+        padding: 10px;
+    }
+} 
